@@ -11,7 +11,8 @@ import express from 'express';
 var app: express.Express = express();
 
 app.get("/", function (request: any, response: any) {
-  
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+	response.end('Discord bot is active now \n');
 });
 
 var listener = app.listen(process.env.PORT, function () {
