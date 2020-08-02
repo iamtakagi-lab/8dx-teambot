@@ -4,18 +4,17 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "lib": [
-            "es6",
+            "es2020",
             "dom"
         ],
         "esModuleInterop": true,
         "allowJs": true,
         "sourceMap": true,
         "strict": true,
-        "noEmit": true,
         "experimentalDecorators": true,
         "baseUrl": ".",
         "rootDir": "./src",
-        "outDir": "./out",
+        "outDir": "./dist",
         "paths": {
             "~/*": [
                 "./src/*"
@@ -25,7 +24,8 @@
             ]
         },
         "types": [
-            "@types/node"
+            "@types/node",
+            "@types/express"
         ]
     },
     "exclude": [
@@ -34,6 +34,7 @@
         "**/*.spec.ts"
     ],
     "include": [
-        "src/**/*", "src/util"
+        "src/**/*",
+        "src/commands"
     ]
 }
