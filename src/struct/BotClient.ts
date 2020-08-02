@@ -1,5 +1,3 @@
-import path from "path";
-
 const { AkairoClient, CommandHandler } = require('discord-akairo')
 
 export default class BotClient extends AkairoClient {
@@ -7,7 +5,8 @@ export default class BotClient extends AkairoClient {
         super({ownerID: '695218967173922866'})
 
         this.commandHandler = new CommandHandler(this, {
-            directory: './src/commands',
+            directory: './dist/commands/',
+            aliasReplacement: /-/g,
             prefix: '_',
             allowMention: true,
             commandUtil: true,

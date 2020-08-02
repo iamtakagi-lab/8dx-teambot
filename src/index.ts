@@ -1,4 +1,5 @@
 require('dotenv').config()
+const fetch = require("node-fetch");
 
 import BotClient from './struct/BotClient'
 
@@ -10,11 +11,9 @@ import express from 'express';
 var app: express.Express = express();
 
 app.get("/", function (request: any, response: any) {
-  response.end(200)
+  
 });
 
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ', listener.address());
 });
-
-process.on('unhandledRejection', err => console.error(err));
