@@ -1,20 +1,19 @@
-require('dotenv').config()
-const fetch = require("node-fetch");
-
 import BotClient from './struct/BotClient'
 
-const client = new BotClient();
+import express from 'express'
+const app: express.Express = express()
 
-client.start(process.env.TOKEN);
-
-import express from 'express';
-var app: express.Express = express();
-
-app.get("/", function (request: any, response: any) {
-  response.writeHead(200, {'Content-Type': 'text/plain'});
-	response.end('Discord bot is active now \n');
-});
+app.get('/', async (req: any, res: any) => {
+    const client = req.query.client
+    if (client === 'gas') {
+        return res.send('Glitch woke up')
+    }
+})
 
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ', listener.address());
 });
+
+const client = new BotClient();
+
+client.start(process.env.TOKEN);
