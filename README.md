@@ -1,7 +1,7 @@
 # mk8dx-teambot
 MK8DX Team Bot
 
-_t (teamSize 1-6) (players) : Grouping
+_t (teamSize 1-6) (players) : Random Grouping
 
 _tag (1-10) : Random Tag
 
