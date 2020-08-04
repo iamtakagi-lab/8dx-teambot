@@ -3,14 +3,10 @@
         "target": "es2018",
         "module": "commonjs",
         "moduleResolution": "node",
-        "lib": [
-            "es2020",
-            "dom"
-        ],
+        "resolveJsonModule": true,
+        "emitDecoratorMetadata": true,
         "esModuleInterop": true,
-        "allowJs": true,
         "sourceMap": true,
-        "strict": true,
         "experimentalDecorators": true,
         "baseUrl": ".",
         "rootDir": "./src",
@@ -25,7 +21,8 @@
         },
         "types": [
             "@types/node",
-            "@types/express"
+            "@types/express",
+            "@types/ws"
         ]
     },
     "exclude": [
