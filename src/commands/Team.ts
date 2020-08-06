@@ -45,7 +45,7 @@ class TeamCommand extends Command {
             return this.error(message.channel)
         }
 
-        const split = args.data.split(' ')
+        const split = args.data.split(/\s+/)
 
         if (split.length < 2) {
             error = true
