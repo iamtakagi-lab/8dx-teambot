@@ -71,7 +71,7 @@ class TeamCommand extends Command {
         const teams = composeTeam(players, makeTeamSize)
 
         const embed = new Discord.MessageEmbed()
-            .setTitle("Teams (" + ( teamSize == 1 ? "FFA" : teamSize + "v" + teamSize + ")" ))
+            .setTitle("Teams (" + ( teamSize == 1 ? "FFA)" : teamSize + "v" + teamSize + ")" ))
             .setColor("#FFFFCC")
 
         teams.forEach(
