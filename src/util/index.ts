@@ -23,7 +23,7 @@ export const composeTeam = (players: Array<string>, makeTeamSize: number): Array
 
     let n = 0
 
-    shuffle(players)
+    players = shuffle(players)
 
     players.forEach(player =>
         teams[n++ % makeTeamSize].push(player)
