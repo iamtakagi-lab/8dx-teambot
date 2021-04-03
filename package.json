@@ -1,5 +1,5 @@
 {
-  "name": "mk8dx-teambot",
+  "name": "8dx-teambot",
   "version": "0.0.1",
   "main": "./dist/index.js",
   "license": "MIT",
