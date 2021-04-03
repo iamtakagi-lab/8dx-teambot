@@ -1,0 +1,68 @@
+name: Check PR
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    paths-ignore:
+      - '*.md'
+
+  workflow_dispatch:
+
+env:
+  KOTLIN_DIR: kotlin
+  NEXT_DIR: next
+
+jobs:
+  check-kotlin:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Using Caches
+        uses: actions/cache@v2.1.3
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+        working-directory: ${{env.KOTLIN_DIR}}
+
+      - name: Setup JDK
+        uses: actions/setup-java@v1.4.3
+        with:
+          java-version: 1.8
+        working-directory: ${{env.NEXT_DIR}}
+
+      - name: Grant Execute Permission to gradlew
+        run: chmod +x gradlew
+        working-directory: ${{env.KOTLIN_DIR}}
+
+      - name: Build with Gradle
+        run: ./gradlew build
+        working-directory: ${{env.KOTLIN_DIR}}
+    
+  check-next:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+        working-directory: ${{env.NEXT_DIR}}
+
+      - name: Lint ESLint
+        run: yarn lint:eslint
+        working-directory: ${{env.NEXT_DIR}}
+        
+      - name: Lint Prettier
+        run: yarn lint:prettier
+        working-directory: ${{env.NEXT_DIR}}
+    
