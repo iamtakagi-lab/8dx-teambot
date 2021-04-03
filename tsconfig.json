@@ -20,9 +20,7 @@
             ]
         },
         "types": [
-            "@types/node",
-            "@types/express",
-            "@types/ws"
+            "@types/node"
         ]
     },
     "exclude": [
