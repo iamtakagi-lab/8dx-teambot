@@ -23,3 +23,8 @@ services:
     image: iamtakagi/8dx-teambot:latest
     BOT_TOKEN: xxx
 ```
+
+## Start
+```console
+docker-compose up -d
+```
