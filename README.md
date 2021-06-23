@@ -21,7 +21,8 @@ services:
   8dx-teambot:
     container_name: 8dx-teambot
     image: iamtakagi/8dx-teambot:latest
-    BOT_TOKEN: xxx
+    environment:
+      BOT_TOKEN: xxx
 ```
 
 ## Start
